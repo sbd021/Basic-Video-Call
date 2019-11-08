@@ -4,10 +4,10 @@
 # https://docs.microsoft.com/azure/devops/pipelines/apps/windows/dot-net
 
 trigger:
-- dev/Windows_azure
+- azure-pipelines
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'vs2013-win2016'
 
 variables:
   solution: 'Group-Video/OpenVideoCall-Windows/OpenVideoCall.sln'
