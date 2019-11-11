@@ -15,9 +15,6 @@ variables:
   buildConfiguration: 'Debug'
 
 steps:
-- task: DownloadSecureFile@1
-  inputs:
-    secureFile: 'http://192.168.99.149:8086/v2.9.0/AgoraSDK/Windows/testing(x86_release)/Agora_Native_SDK_for_Windows(x86)_v2.9.0_20191009_FULL_2450.zip'
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
