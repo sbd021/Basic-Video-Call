@@ -15,6 +15,53 @@ variables:
   buildConfiguration: 'Debug'
 
 steps:
+- task: PythonScript@0
+  inputs:
+    scriptSource: 'inline'
+    script: |
+      '''
+      Below code is used for fetch external SDK from server and
+      replace the artifacts from `agora-release-mediasdk3-windows` project.
+      It will do nothing if parameter RTC_SDK_URL set to 0.
+      
+      Only work for python2.
+      '''
+      
+      import urllib2
+      import os
+      import shutil
+      import zipfile
+      import glob
+      
+      
+      cwd = os.environ['WORKSPACE']
+      RTC_SDK_URL = os.environ['RTC_SDK_URL']
+      
+      def download(url, dest_file):
+          username = "agoratest"
+          password = "bestvoip"
+      
+          print("Start downloading %s ..." % url)
+          password_mgr = urllib2.HTTPPasswordMgrWithDefaultRealm()
+          password_mgr.add_password(None, url, username, password)
+          handler = urllib2.HTTPBasicAuthHandler(password_mgr)
+          opener = urllib2.build_opener(handler)
+          urllib2.install_opener(opener)
+          req = urllib2.Request(url)
+          f = urllib2.urlopen(req)
+          data = f.read()
+          with open(dest_file, "wb") as code:
+              code.write(data)
+          print("Download finished. File path is: %s" % dest_file)
+      
+      if RTC_SDK_URL == '0':
+          pass
+      else:
+          shutil.rmtree('./Group-Video/products_sdk/sdk')
+          download(RTC_SDK_URL,'RTC_SDK.zip')
+          zf = zipfile.ZipFile('./RTC_SDK.zip','r')
+          zf.extractall('./Group-Video/products_sdk/tmp')
+          shutil.copytree(glob.glob('./Group-Video/products_sdk/tmp/Agora*')[0] + '/sdk', './Group-Video/products_sdk/sdk')
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
