@@ -7,13 +7,12 @@ trigger:
 - azure-pipelines
 
 pool:
-  vmImage: 'vs2017-win2016'
+  vmImage: 'vs2013-win2013'
 
 variables:
   solution: 'Group-Video/OpenVideoCall-Windows/OpenVideoCall.sln'
   buildPlatform: 'Win32'
   buildConfiguration: 'Release'
-  vsVersion: '12.0'
 
 steps:
 - task: NuGetToolInstaller@1
