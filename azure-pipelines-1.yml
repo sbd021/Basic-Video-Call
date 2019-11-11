@@ -9,12 +9,6 @@ trigger:
 pool:
   vmImage: 'vs2017-win2016'
 
-- task: DownloadFileshareArtifacts@1
-  inputs:
-    filesharePath: 'http://192.168.99.149:8086/v2.9.0/AgoraSDK/Windows/testing(x86_release)/Agora_Native_SDK_for_Windows(x86)_v2.9.0_20191009_FULL_2450.zip'
-    artifactName: 'Product_SDK'
-    downloadPath: '$(System.ArtifactsDirectory)'
-
 variables:
   solution: 'Group-Video/OpenVideoCall-Windows/OpenVideoCall.sln'
   buildPlatform: 'Win32'
@@ -27,6 +21,12 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+- task: DownloadFileshareArtifacts@1
+  inputs:
+    filesharePath: 'http://192.168.99.149:8086/v2.9.0/AgoraSDK/Windows/testing(x86_release)/Agora_Native_SDK_for_Windows(x86)_v2.9.0_20191009_FULL_2450.zip'
+    artifactName: 'Product_SDK'
+    downloadPath: '$(System.ArtifactsDirectory)'
+    
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
