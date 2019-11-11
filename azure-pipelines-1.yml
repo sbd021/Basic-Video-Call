@@ -12,7 +12,7 @@ pool:
 variables:
   solution: 'Group-Video/OpenVideoCall-Windows/OpenVideoCall.sln'
   buildPlatform: 'Win32'
-  buildConfiguration: 'Release'
+  buildConfiguration: 'Debug'
 
 steps:
 - task: NuGetToolInstaller@1
