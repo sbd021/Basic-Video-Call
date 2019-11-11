@@ -24,11 +24,9 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    vsVersion: '15.0'
-    msbuildArgs: 'Platform Toolset = ''v120_xp'''
+    vsVersion: '12.0'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-
 - task: VSTest@2
   inputs:
     platform: '$(buildPlatform)'
