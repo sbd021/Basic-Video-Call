@@ -28,22 +28,22 @@ jobs:
           addToPath: true
           architecture: 'x86'
 
-    - task: PythonScript@0
+      - task: PythonScript@0
         inputs:
           scriptSource: 'filePath'
           scriptPath: ${{ parameters.workingDirectory }}/ci.env.py'
     
-    - task: NuGetCommand@2
+      - task: NuGetCommand@2
         inputs:
           restoreSolution: '$(solution)'
     
-    - task: VSBuild@1
+      - task: VSBuild@1
         inputs:
           solution: '$(solution)'
           vsVersion: '12.0'
           platform: '$(buildPlatform)'
           configuration: '$(buildConfiguration)'
-    - task: VSTest@2
+      - task: VSTest@2
         inputs:
           platform: '$(buildPlatform)'
           configuration: '$(buildConfiguration)'
