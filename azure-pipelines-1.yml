@@ -16,6 +16,12 @@ variables:
 
 steps:
 - task: NuGetToolInstaller@1
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '2.7'
+    addToPath: true
+    architecture: 'x86'
+
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath'
