@@ -1,4 +1,4 @@
-import urllib2
+from urllib.request import urlopen
 import os
 import shutil
 import zipfile
