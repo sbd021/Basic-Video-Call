@@ -4,7 +4,7 @@ import shutil
 import zipfile
 import glob
 
-RTC_SDK_URL="http://192.168.99.149:8086/v3.0.0/AgoraSDK/Windows/testing(x86_release)/Agora_Native_SDK_for_Windows(x86)_v3.0.0_20191113_FULL_2632.zip"
+RTC_SDK_URL="https://download.agora.io/sdk/release/Agora_Native_SDK_for_Windows(x86)_v2_9_1_FULL.zip?_ga=2.60902700.1683485253.1573617292-1291089117.1523340730"
 print (RTC_SDK_URL)
 
 def download(url, dest_file):
