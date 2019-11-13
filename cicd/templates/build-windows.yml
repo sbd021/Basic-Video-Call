@@ -3,42 +3,47 @@
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/apps/windows/dot-net
 
+parameters:
+  displayName: ''
+  workingDirectory: ''
+  scheme: ''
+
 jobs:
-trigger:
-- azure-pipelines
+  - job: ${{ parameters.displayName }}Build
+    displayName: ${{ parameters.displayName }}
 
-pool:
-  vmImage: 'vs2017-win2016'
+    pool:
+      vmImage: 'vs2017-win2016'
 
-variables:
-  solution: ${{ parameters.workingDirectory }}/OpenVideoCall.sln'
-  buildPlatform: 'Win32'
-  buildConfiguration: 'Release'
+    variables:
+      solution: ${{ parameters.workingDirectory }}/OpenVideoCall.sln'
+      buildPlatform: 'Win32'
+      buildConfiguration: 'Release'
 
-steps:
-- task: NuGetToolInstaller@1
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '2.7'
-    addToPath: true
-    architecture: 'x86'
+    steps:
+      - task: NuGetToolInstaller@1
+      - task: UsePythonVersion@0
+        inputs:
+          versionSpec: '2.7'
+          addToPath: true
+          architecture: 'x86'
 
-- task: PythonScript@0
-  inputs:
-    scriptSource: 'filePath'
-    scriptPath: ${{ parameters.workingDirectory }}/ci.env.py'
+    - task: PythonScript@0
+        inputs:
+          scriptSource: 'filePath'
+          scriptPath: ${{ parameters.workingDirectory }}/ci.env.py'
     
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
+    - task: NuGetCommand@2
+        inputs:
+          restoreSolution: '$(solution)'
     
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    vsVersion: '12.0'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    - task: VSBuild@1
+        inputs:
+          solution: '$(solution)'
+          vsVersion: '12.0'
+          platform: '$(buildPlatform)'
+          configuration: '$(buildConfiguration)'
+    - task: VSTest@2
+        inputs:
+          platform: '$(buildPlatform)'
+          configuration: '$(buildConfiguration)'
