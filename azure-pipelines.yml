@@ -16,5 +16,5 @@ jobs:
       displayName: 'WindowsOpenVideoCall'
       workingDirectory: 'Group-Video/OpenVideoCall-Windows'
       scheme: 'OpenVideoCall'
-      sdkurl: $(MacRTCSDK)
+      sdkurl: $(WindowsRTCSDK)
       solutionName: ''

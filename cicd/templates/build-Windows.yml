@@ -22,7 +22,7 @@ jobs:
       buildConfiguration: 'Release'
    
     steps:
-      - script: echo "${{ parameters.sdkurl }}"
+      - script: echo "${{ parameters.sdkurl }}" && ls
       - powershell: cicd/script/downloadsdk.ps1 "${{ parameters.sdkurl }}"
    
       - task: ExtractFiles@1
