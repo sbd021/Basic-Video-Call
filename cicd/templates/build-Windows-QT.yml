@@ -13,7 +13,7 @@ jobs:
   - job: ${{ parameters.displayName }}Build
     displayName: ${{ parameters.displayName }}
 
-    pool: 'QT-windows'
+    pool: 'Default'
 
     variables:
       solution: '${{ parameters.workingDirectory }}/${{ parameters.solutionName }}'
