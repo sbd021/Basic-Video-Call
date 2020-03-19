@@ -8,6 +8,7 @@ set VCINSTALLDIR=%~1
 set QTDIR=%~2
 ::x86;x64
 set Machine=%~3
+set WorkingDirectory=%~4
 echo vsdir: %VCINSTALLDIR%
 echo qtdir:%QTDIR%
 echo machine:%Machine%
@@ -18,6 +19,7 @@ set PATH=%VCINSTALLDIR%\bin;%QTDIR%\bin;%PATH%
 set vsdevpath=%VCINSTALLDIR%\vcvarsall.bat
 echo vsdevpath:%vsdevpath%
 call "%VCINSTALLDIR%\vcvarsall.bat" %Machine%
+cd WorkingDirectory
 qmake OpenVideoCall.pro "CONFIG+=release" "CONFIG+=qml_release"
 nmake
 cd release
