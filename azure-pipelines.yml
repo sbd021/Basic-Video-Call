@@ -3,7 +3,9 @@ variables:
   MacRTCSDK: 'https://download.agora.io/sdk/release/Agora_Native_SDK_for_Mac_v3_0_0_FULL.zip?_ga=2.78400662.368877217.1583320605-5559409.1503304822'
   WindowsRTCSDK: 'https://download.agora.io/sdk/release/Agora_Native_SDK_for_Windows(x86)_v2_9_3_FULL.zip'
 jobs:
-#Windows
+
+#Windows demo
+
   - template: cicd/templates/build-Windows.yml
     parameters:
       displayName: 'WindowsTutorial'
@@ -11,6 +13,7 @@ jobs:
       scheme: 'Agora-Windows-Tutorial-1to1'
       sdkurl: $(WindowsRTCSDK)
       solutionName: 'AgoraTutorial.sln'
+
   - template: cicd/templates/build-Windows-QT.yml
     parameters:
       displayName: 'WindowsOpenVideoCall'

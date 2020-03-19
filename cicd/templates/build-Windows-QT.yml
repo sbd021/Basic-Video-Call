@@ -14,7 +14,7 @@ jobs:
     displayName: ${{ parameters.displayName }}
 
     pool:
-      vmImage: 'Default'
+      Name: 'Default'
 
     variables:
       solution: '${{ parameters.workingDirectory }}/${{ parameters.solutionName }}'
