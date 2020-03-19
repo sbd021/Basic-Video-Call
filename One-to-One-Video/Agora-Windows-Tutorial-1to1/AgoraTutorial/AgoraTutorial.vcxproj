@@ -70,7 +70,7 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <PostBuildEvent>
-      <Command>if exist ..\sdk (copy ..\sdk\dll\*.dll ..\$(Configuration)\) else if exist ..\..\..\sdk (copy ..\..\..\sdk\dll\*.dll ..\$(Configuration)\)</Command>
+      <Command>if exist $(SolutionDir)sdk (copy $(SolutionDir)sdk\dll\*.dll $(SolutionDir)\$(Configuration)\)</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>
@@ -104,7 +104,7 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <PostBuildEvent>
-      <Command>if exist ..\sdk (copy ..\sdk\dll\*.dll ..\$(Configuration)\) else if exist ..\..\..\sdk (copy ..\..\..\sdk\dll\*.dll ..\$(Configuration)\)</Command>
+      <Command>if exist $(SolutionDir)sdk (copy $(SolutionDir)sdk\dll\*.dll $(SolutionDir)\$(Configuration)\)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
