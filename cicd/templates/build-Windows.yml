@@ -32,8 +32,8 @@ jobs:
           
       - task: CopyFiles@2
         inputs:
-          sourceFolder: 'AgoraSDK/Agora_Native_SDK_for_Windows_v2.9.3_FULL/'
-          targetFolder: ${{ parameters.workingDirectory }}
+          sourceFolder: 'AgoraSDK/Agora_Native_SDK_for_Windows_v2.9.3_FULL/sdk'
+          targetFolder: ${{ parameters.workingDirectory }}/sdk
       - script: cd ${{ parameters.workingDirectory }} && ls
               
       - task: VSBuild@1
@@ -44,7 +44,6 @@ jobs:
           vsVersion: '15.0'
           msbuildArchitecture: 'x86'
 
-      - script: ls 
       - script: cd ${{ parameters.workingDirectory }} && ls
 
       - task: ArchiveFiles@2
