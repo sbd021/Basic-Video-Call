@@ -14,7 +14,7 @@ jobs:
     displayName: ${{ parameters.displayName }}
 
     pool:
-      name: 'Qt-windows'
+      name: 'QT-windows'
 
     variables:
       solution: '${{ parameters.workingDirectory }}/${{ parameters.solutionName }}'
