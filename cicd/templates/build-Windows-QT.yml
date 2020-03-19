@@ -14,7 +14,7 @@ jobs:
     displayName: ${{ parameters.displayName }}
 
     pool:
-      vmImage: 'Qt Windows'
+      vmImage: 'Qt-Windows'
 
     variables:
       solution: '${{ parameters.workingDirectory }}/${{ parameters.solutionName }}'
@@ -23,7 +23,7 @@ jobs:
    
     steps:
       - script: echo "${{ parameters.sdkurl }}"
-      - powershell: Windows/cicd/script/downloadsdk.ps1 "${{ parameters.sdkurl }}"
+      - powershell: Windows/cicd/scripts/downloadsdk.ps1 "${{ parameters.sdkurl }}"
    
       - task: ExtractFiles@1
         inputs:
@@ -35,27 +35,3 @@ jobs:
           sourceFolder: 'AgoraSDK/Agora_Native_SDK_for_Windows_v2.9.3_FULL/'
           targetFolder: ${{ parameters.workingDirectory }}
       - script: cd ${{ parameters.workingDirectory }} && ls
-              
-      - task: VSBuild@1
-        inputs:
-          solution: '$(solution)'
-          platform: '$(buildPlatform)'
-          configuration: '$(buildConfiguration)'
-          vsVersion: '15.0'
-          msbuildArchitecture: 'x86'
-   
-      - task: ArchiveFiles@2
-        inputs:
-          rootFolderOrFile: '${{ parameters.workingDirectory }}/Release/'
-          includeRootFolder: true 
-          archiveType: 'zip'
-          archiveFile: ${{ parameters.workingDirectory }}/${{ parameters.displayName }}.zip
-          replaceExistingArchive: true
-          
-      - script: ls 
-      - script: cd ${{ parameters.workingDirectory }} && ls
-      
-      - task: PublishBuildArtifacts@1
-        inputs:
-          PathtoPublish: ${{ parameters.workingDirectory }}/${{ parameters.displayName }}.zip
-          ArtifactName: ${{ parameters.displayName }}
