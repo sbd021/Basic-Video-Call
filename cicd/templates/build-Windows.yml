@@ -34,7 +34,7 @@ jobs:
         inputs:
           sourceFolder: 'AgoraSDK/Agora_Native_SDK_for_Windows_v2.9.3_FULL/sdk'
           targetFolder: ${{ parameters.workingDirectory }}/sdk
-      - script: cd ${{ parameters.workingDirectory }} && ls
+      - script: cd ${{ parameters.workingDirectory }}/ && ls
               
       - task: VSBuild@1
         inputs:
@@ -45,6 +45,7 @@ jobs:
           msbuildArchitecture: 'x86'
 
       - script: cd ${{ parameters.workingDirectory }} && ls
+      - script: cd ${{ parameters.workingDirectory }}/AgoraTutorial/Release && ls
 
       - task: ArchiveFiles@2
         inputs:

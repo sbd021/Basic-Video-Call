@@ -104,8 +104,7 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>if exist $(SolutionDir)sdk (copy $(SolutionDir)sdk\dll\*.dll $(SolutionDir)\$(Configuration)\)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
