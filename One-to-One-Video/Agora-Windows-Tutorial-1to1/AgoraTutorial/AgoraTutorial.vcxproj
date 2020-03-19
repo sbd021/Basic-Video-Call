@@ -107,7 +107,9 @@
       <Command>if exist $(SolutionDir)sdk (copy $(SolutionDir)sdk\dll\*.dll $(SolutionDir)\$(Configuration)\)</Command>
     </PostBuildEvent>
     <PreBuildEvent>
-      <Command>echo $(SolutionDir)$(Configuration)</Command>
+      <Command>echo "=========================================="
+echo $(SolutionDir)$(Configuration)
+echo "=========================================="</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
