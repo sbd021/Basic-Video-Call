@@ -106,6 +106,9 @@
     <PostBuildEvent>
       <Command>if exist $(SolutionDir)sdk (copy $(SolutionDir)sdk\dll\*.dll $(SolutionDir)\$(Configuration)\)</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>echo $(SolutionDir)$(Configuration)</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AGEngineEventHandler.h" />
