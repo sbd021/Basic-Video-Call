@@ -12,7 +12,7 @@ echo vsdir: %VCINSTALLDIR%
 echo qtdir:%QTDIR%
 echo machine:%Machine%
 
-set PATH=%VCINSTALLDIR%\bin;%QTDIR%\bin;C:\Program Files\7-Zip;%PATH%
+set PATH=%VCINSTALLDIR%\bin;%QTDIR%\bin;%PATH%
 
 ::shadow build
 set vsdevpath=%VCINSTALLDIR%\vcvarsall.bat
