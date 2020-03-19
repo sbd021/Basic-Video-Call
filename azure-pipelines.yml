@@ -10,7 +10,7 @@ jobs:
       workingDirectory: 'One-to-One-Video/Agora-Windows-Tutorial-1to1'
       scheme: 'Agora-Windows-Tutorial-1to1'
       sdkurl: $(WindowsRTCSDK)
-      solutionName: 'AgoraTutorial'
+      solutionName: 'AgoraTutorial.sln'
   - template: cicd/templates/build-Windows-QT.yml
     parameters:
       displayName: 'WindowsOpenVideoCall'
