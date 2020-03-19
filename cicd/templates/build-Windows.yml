@@ -54,9 +54,8 @@ jobs:
           archiveType: 'zip'
           archiveFile: ${{ parameters.workingDirectory }}/${{ parameters.displayName }}.zip
           replaceExistingArchive: true
-          
-      - script: ls 
-      - script: cd ${{ parameters.workingDirectory }} && ls
+
+      - script: cd ${{ parameters.workingDirectory }}
       
       - task: PublishBuildArtifacts@1
         inputs:
