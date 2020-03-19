@@ -13,8 +13,7 @@ jobs:
   - job: ${{ parameters.displayName }}Build
     displayName: ${{ parameters.displayName }}
 
-    pool:
-      name: 'QT-windows'
+    pool: 'QT-windows'
 
     variables:
       solution: '${{ parameters.workingDirectory }}/${{ parameters.solutionName }}'
