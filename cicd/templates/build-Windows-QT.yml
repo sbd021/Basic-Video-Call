@@ -31,7 +31,7 @@ jobs:
           
       - task: CopyFiles@2
         inputs:
-          sourceFolder: 'AgoraSDK/Agora_Native_SDK_for_Windows_v2.9.3_FULL/sdk'
+          sourceFolder: 'AgoraSDK/Agora_Native_SDK_for_Windows_v3.0.0_FULL/sdk'
           targetFolder: ${{ parameters.workingDirectory }}/sdk
 
       - script: cd ${{ parameters.workingDirectory }} 
