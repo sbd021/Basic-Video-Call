@@ -37,3 +37,18 @@ jobs:
 
       - script: cd ${{ parameters.workingDirectory }} 
       - script: ${{ parameters.workingDirectory }}/build_azure_pipeline.bat ${{ parameters.workingDirectory }}
+      - task: ArchiveFiles@2
+        inputs:
+          rootFolderOrFile: '${{ parameters.workingDirectory }}/Win32/Release/'
+          includeRootFolder: true 
+          archiveType: 'zip'
+          archiveFile: ${{ parameters.workingDirectory }}/${{ parameters.displayName }}.zip
+          replaceExistingArchive: true
+          
+      - script: ls 
+      - script: cd ${{ parameters.workingDirectory }} && ls
+      
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: ${{ parameters.workingDirectory }}/${{ parameters.displayName }}.zip
+          ArtifactName: ${{ parameters.displayName }}
