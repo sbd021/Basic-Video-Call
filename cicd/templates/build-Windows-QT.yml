@@ -35,5 +35,5 @@ jobs:
           targetFolder: ${{ parameters.workingDirectory }}/sdk
 
       - script: cd ${{ parameters.workingDirectory }} 
-
+						- script: ${{ parameters.workingDirectory }}/build_azure_pipeline.bat
  # script: call ${{ parameters.workingDirectory }}/build_release.bat "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\VC\Auxiliary\\Build" "C:\\Qt\\Qt5.12.7\\5.12.7\\msvc2017" x86 "${ parameters.workingDirectory }"
