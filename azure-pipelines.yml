@@ -18,7 +18,7 @@ jobs:
 
   - template: cicd/templates/build-Windows.yml
     parameters:
-      displayName: 'WindowsTutorial'
+      displayName: 'WindowsTutorial64'
       workingDirectory: 'One-to-One-Video/Agora-Windows-Tutorial-1to1'
       scheme: 'Agora-Windows-Tutorial-1to1'
       sdkurl: $(WindowsRTCSDK)
