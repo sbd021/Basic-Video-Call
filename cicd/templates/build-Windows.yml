@@ -10,6 +10,7 @@ parameters:
   sdkurl: ''
   solutionName: ''
   sdkunzipPath: ''
+  Machine: ''
 jobs:
   - job: ${{ parameters.displayName }}Build
     displayName: ${{ parameters.displayName }}
@@ -19,7 +20,7 @@ jobs:
 
     variables:
       solution: '${{ parameters.workingDirectory }}/${{ parameters.solutionName }}'
-      buildPlatform: 'win32'
+      buildPlatform: ${{ parameters.Machine }}
       buildConfiguration: 'Release'
    
     steps:

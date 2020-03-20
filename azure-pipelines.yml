@@ -14,6 +14,17 @@ jobs:
       sdkurl: $(WindowsRTCSDK)
       solutionName: 'AgoraTutorial.sln'
       sdkunzipPath: 'AgoraSDK/Agora_Native_SDK_for_Windows_v3.0.0_FULL'
+      Machine: 'win32'
+
+  - template: cicd/templates/build-Windows.yml
+    parameters:
+      displayName: 'WindowsTutorial'
+      workingDirectory: 'One-to-One-Video/Agora-Windows-Tutorial-1to1'
+      scheme: 'Agora-Windows-Tutorial-1to1'
+      sdkurl: $(WindowsRTCSDK)
+      solutionName: 'AgoraTutorial.sln'
+      sdkunzipPath: 'AgoraSDK/Agora_Native_SDK_for_Windows_v3.0.0_FULL'
+      Machine: 'x64'
 
   - template: cicd/templates/build-Windows-QT.yml
     parameters:
