@@ -48,7 +48,6 @@ jobs:
           msbuildArchitecture: 'x86'
 
       - script: cd ${{ parameters.workingDirectory }} && ls
-      - script: cd ${{ parameters.workingDirectory }}/AgoraTutorial/Release && ls
 
       - task: ArchiveFiles@2
         inputs:

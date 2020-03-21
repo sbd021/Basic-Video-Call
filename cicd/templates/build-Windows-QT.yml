@@ -35,9 +35,9 @@ jobs:
           sourceFolder: ${{ parameters.sdkunzipPath }}/sdk
           targetFolder: ${{ parameters.workingDirectory }}/sdk
 
-      - script: cd ${{ parameters.workingDirectory }} 
       - script: ${{ parameters.workingDirectory }}/build_azure_pipeline.bat ${{ parameters.workingDirectory }} ${{ parameters.Machine }}
-      - script: cd ${{ parameters.workingDirectory }}&&ls
+      - script: cd ${{ parameters.workingDirectory }} && ls
+
       - task: ArchiveFiles@2
         inputs:
           rootFolderOrFile: '${{ parameters.workingDirectory }}/${{ parameters.ReleasePath }}/'
