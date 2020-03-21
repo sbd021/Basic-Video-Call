@@ -37,7 +37,7 @@ jobs:
 
       - script: ${{ parameters.workingDirectory }}/build_azure_pipeline.bat ${{ parameters.workingDirectory }} ${{ parameters.Machine }}
       
-      - task: DeleteFile@1
+      - task: DeleteFile@2
         inputs:
           sourceFolder: '${{ parameters.workingDirectory }}/${{ parameters.ReleasePath }}'
           Contents: |
