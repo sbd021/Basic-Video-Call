@@ -37,15 +37,9 @@ jobs:
 
       - script: ${{ parameters.workingDirectory }}/build_azure_pipeline.bat ${{ parameters.workingDirectory }} ${{ parameters.Machine }}
       
-      - task: DeleteFile@3
-        displayName: 'Remove unneeded files'
-        inputs:
-          sourceFolder: '${{ parameters.workingDirectory }}/${{ parameters.ReleasePath }}'
-          Contents: |
-            *.obj
-            *.h
-            *.cpp
-      - task: ArchiveFiles@4
+      - powershell:  Remove-Item  '${{ parameters.workingDirectory }}/${{ parameters.ReleasePath }}/*.obj' '${{ parameters.workingDirectory }}/${{ parameters.ReleasePath }}/*.h' '${{ parameters.workingDirectory }}/${{ parameters.ReleasePath }}/*.cpp'
+      
+      - task: ArchiveFiles@2
         inputs:
           rootFolderOrFile: '${{ parameters.workingDirectory }}/${{ parameters.ReleasePath }}/'
           includeRootFolder: true 
