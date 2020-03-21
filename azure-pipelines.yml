@@ -35,7 +35,7 @@ jobs:
       solutionName: ''
       sdkunzipPath: 'AgoraSDK/Agora_Native_SDK_for_Windows_v3.0.0_FULL'
       Machine: 'x86'
-      ReleasePath: 'win32/Release'
+      ReleasePath: 'Release'
   - template: cicd/templates/build-Windows-QT.yml
     parameters:
       displayName: 'WindowsOpenVideoCall64'
