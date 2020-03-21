@@ -37,14 +37,15 @@ jobs:
 
       - script: ${{ parameters.workingDirectory }}/build_azure_pipeline.bat ${{ parameters.workingDirectory }} ${{ parameters.Machine }}
       
-      - task: DeleteFile@2
+      - task: DeleteFile@3
+        displayName: 'Remove unneeded files'
         inputs:
           sourceFolder: '${{ parameters.workingDirectory }}/${{ parameters.ReleasePath }}'
           Contents: |
             *.obj
             *.h
             *.cpp
-      - task: ArchiveFiles@2
+      - task: ArchiveFiles@4
         inputs:
           rootFolderOrFile: '${{ parameters.workingDirectory }}/${{ parameters.ReleasePath }}/'
           includeRootFolder: true 
