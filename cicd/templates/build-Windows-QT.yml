@@ -38,7 +38,8 @@ jobs:
       - script: ${{ parameters.workingDirectory }}/build_azure_pipeline.bat ${{ parameters.workingDirectory }} ${{ parameters.Machine }}
       
       - powershell:  Remove-Item  "$(ReleasDir)/*.obj"
-      
+      - powershell:  Remove-Item  "$(ReleasDir)/*.h"
+      - powershell:  Remove-Item  "$(ReleasDir)/*.cpp"
       - task: ArchiveFiles@2
         inputs:
           rootFolderOrFile: '$(ReleasDir)'
