@@ -11,6 +11,7 @@ parameters:
   solutionName: ''
   sdkunzipPath: ''
   Machine: ''
+  ReleasePath: ''
 jobs:
   - job: ${{ parameters.displayName }}Build
     displayName: ${{ parameters.displayName }}
@@ -51,7 +52,7 @@ jobs:
 
       - task: ArchiveFiles@2
         inputs:
-          rootFolderOrFile: '${{ parameters.workingDirectory }}/Release/'
+          rootFolderOrFile: '${{ parameters.workingDirectory }}/${{ parameters.ReleasePath }}/'
           includeRootFolder: true 
           archiveType: 'zip'
           archiveFile: ${{ parameters.workingDirectory }}/${{ parameters.displayName }}.zip
